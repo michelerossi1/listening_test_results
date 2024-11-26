@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set 1 - Audio & Image Results</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <h1>Set 1: Audio & Image Results</h1>
+    <p>Click play to hear the audio and view the associated images for analysis.</p>
+
+    <div class="container">
+        <!-- Audio Controls -->
+        <div class="audio-buttons">
+            <button onclick="playAudio('audio1')">Original</button>
+            <button onclick="playAudio('audio2')">Low-Pass</button>
+            <button onclick="playAudio('audio3')">Saturation</button>
+        </div>
+
+        <!-- Images with Title -->
+        <div class="image-container">
+            <img src="assets/images/song_aggressive_ok_25nov.png" alt="Plot 1" class="image1">
+            <div class="image-title">
+                <h3>Histogram: Aggressive Emotion</h3>
+            </div>
+            <img src="assets/images/song_aggressive_emotion_Agrressive.png" alt="Histogram 1" class="image2">
+        </div>
+
+        <!-- Hidden Audio Elements -->
+        <audio id="audio1" src="assets/audio/0__aggressive_original_then.wav"></audio>
+        <audio id="audio2" src="assets/audio/aggressive_low_pass.wav"></audio>
+        <audio id="audio3" src="assets/audio/aggressive_saturation.wav"></audio>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Back to Homepage</a>
+        <a href="set2.html">Next: Set 2</a>
+    </div>
+
+    <script>
+        let currentAudio = null;
+
+        function playAudio(id) {
+            if (currentAudio && !currentAudio.paused) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            var audio = document.getElementById(id);
+            audio.play();
+            currentAudio = audio;
+        }
+    </script>
+</body>
+</html>
+
+
+
